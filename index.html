@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marriage Knowledge Challenge — Pernikahan dalam Islam</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/plus-jakarta-sans/400.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/plus-jakarta-sans/600.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/plus-jakarta-sans/700.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/plus-jakarta-sans/800.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/playfair-display/600.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/playfair-display/700.css">
+<style>
+:root{
+  --green-950:#07231a;
+  --green-900:#0c3325;
+  --green-800:#114430;
+  --green-700:#1a5c3f;
+  --green-600:#22704d;
+  --green-50:#eef6f0;
+  --gold:#c8a24b;
+  --gold-600:#ad8b33;
+  --gold-100:#f5ecd7;
+  --bg:#f6f7f4;
+  --card:#ffffff;
+  --line:#e4e8e2;
+  --text:#1b2420;
+  --muted:#66736c;
+  --red:#c0392b;
+  --red-50:#fdeeec;
+  --ok:#1e7d4f;
+  --ok-50:#e9f6ef;
+  --radius:16px;
+  --shadow:0 8px 30px rgba(12,51,37,.08);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  line-height:1.6;
+}
+.serif{font-family:'Playfair Display',Georgia,serif}
+.hidden{display:none !important}
+.container{max-width:780px;margin:0 auto;padding:0 16px}
+
+/* ===== Screens ===== */
+.screen{display:none;min-height:100vh}
+.screen.active{display:block}
+.fade-in{animation:fadeIn .45s ease both}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* ===== START SCREEN ===== */
+.start-wrap{padding:40px 0 60px}
+.hero{
+  position:relative;
+  background:linear-gradient(160deg,#0a2c20 0%,#0e3a29 55%,#123f2e 100%);
+  border-radius:24px;
+  overflow:hidden;
+  color:#f3efe3;
+  padding:48px 32px 40px;
+  box-shadow:var(--shadow);
+  text-align:center;
+}
+.hero::before{
+  content:"";
+  position:absolute;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg width='90' height='90' viewBox='0 0 90 90' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23c8a24b' stroke-width='1' opacity='0.16'%3E%3Cpath d='M45 6 L54 36 L84 45 L54 54 L45 84 L36 54 L6 45 L36 36 Z'/%3E%3Crect x='24' y='24' width='42' height='42' transform='rotate(45 45 45)'/%3E%3C/g%3E%3C/svg%3E");
+  pointer-events:none;
+}
+.hero > *{position:relative;z-index:1}
+.logo-mark{
+  width:72px;height:72px;margin:0 auto 18px;
+  display:grid;place-items:center;
+  border-radius:50%;
+  background:rgba(200,162,75,.12);
+  border:1.5px solid rgba(200,162,75,.5);
+}
+.logo-mark svg{width:38px;height:38px}
+.hero .kicker{
+  display:inline-block;
+  font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gold);
+  border:1px solid rgba(200,162,75,.4);
+  padding:6px 14px;border-radius:99px;margin-bottom:18px;
+  background:rgba(200,162,75,.08);
+}
+.hero h1{
+  font-family:'Playfair Display',Georgia,serif;
+  font-size:clamp(28px,5.5vw,44px);
+  font-weight:700;line-height:1.15;margin-bottom:8px;color:#fdf9ee;
+}
+.hero h1 span{color:var(--gold)}
+.hero .subtitle{font-size:15px;color:rgba(243,239,227,.75);margin-bottom:26px;font-weight:500}
+.stat-row{
+  display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:8px;
+}
+.stat-chip{
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:12px;
+  padding:10px 16px;
+  min-width:120px;
+}
+.stat-chip .num{display:block;font-size:17px;font-weight:800;color:var(--gold)}
+.stat-chip .lbl{display:block;font-size:11.5px;color:rgba(243,239,227,.7);letter-spacing:.04em;text-transform:uppercase;font-weight:600}
+
+/* form card */
+.form-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:28px 24px;
+  margin-top:22px;
+  box-shadow:var(--shadow);
+}
+.form-card h2{font-size:18px;font-weight:800;margin-bottom:4px;color:var(--green-900)}
+.form-card p.desc{font-size:14px;color:var(--muted);margin-bottom:20px}
+.material-list{
+  display:grid;gap:8px;margin:0 0 22px;padding:0;list-style:none;
+}
+.material-list li{
+  display:flex;gap:10px;align-items:flex-start;
+  font-size:13.5px;color:#3a4741;font-weight:500;
+  background:var(--green-50);
+  border:1px solid #dfeae2;
+  border-radius:10px;padding:9px 12px;
+}
+.material-list li::before{content:"✦";color:var(--gold-600);font-size:13px;line-height:1.6}
+label.field-label{display:block;font-size:13px;font-weight:700;color:var(--green-900);margin-bottom:6px}
+.text-input{
+  width:100%;
+  border:1.5px solid var(--line);
+  border-radius:12px;
+  padding:13px 15px;
+  font:inherit;font-size:15px;
+  background:#fbfcfa;
+  color:var(--text);
+  transition:border-color .2s, box-shadow .2s;
+  outline:none;
+}
+.text-input:focus{border-color:var(--green-600);box-shadow:0 0 0 3px rgba(34,112,77,.12);background:#fff}
+.error-msg{color:var(--red);font-size:12.5px;font-weight:600;margin-top:6px;display:none}
+.error-msg.show{display:block}
+.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+
+/* buttons */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  border:none;border-radius:12px;cursor:pointer;
+  font-family:inherit;font-weight:700;font-size:15px;
+  padding:14px 26px;
+  transition:transform .15s ease, box-shadow .15s ease, background .2s;
+  text-decoration:none;
+}
+.btn:active{transform:scale(.98)}
+.btn-primary{
+  background:linear-gradient(135deg,var(--green-800),var(--green-600));
+  color:#fff;box-shadow:0 6px 18px rgba(17,68,48,.28);
+}
+.btn-primary:hover{box-shadow:0 8px 22px rgba(17,68,48,.38);transform:translateY(-1px)}
+.btn-gold{
+  background:linear-gradient(135deg,var(--gold),#e2c881);
+  color:var(--green-950);box-shadow:0 6px 18px rgba(200,162,75,.35);
+}
+.btn-gold:hover{transform:translateY(-1px)}
+.btn-ghost{
+  background:#fff;color:var(--green-800);
+  border:1.5px solid var(--line);
+}
+.btn-ghost:hover{border-color:var(--green-600);background:var(--green-50)}
+.btn-ghost:disabled{opacity:.4;cursor:not-allowed;transform:none}
+.btn-block{width:100%}
+.btn-sm{padding:9px 16px;font-size:13.5px;border-radius:10px}
+
+/* ===== QUIZ SCREEN ===== */
+.topbar{
+  position:sticky;top:0;z-index:40;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.topbar-inner{
+  max-width:780px;margin:0 auto;padding:10px 16px;
+  display:flex;align-items:center;gap:12px;justify-content:space-between;
+}
+.brand-sm{display:flex;align-items:center;gap:8px;font-weight:800;font-size:14px;color:var(--green-900)}
+.brand-sm .dot{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--green-800),var(--green-600));display:grid;place-items:center;color:var(--gold);font-size:13px}
+.topbar-right{display:flex;align-items:center;gap:10px}
+.timer-pill{
+  display:flex;align-items:center;gap:6px;
+  background:var(--green-900);color:#fff;
+  font-weight:800;font-size:14px;font-variant-numeric:tabular-nums;
+  padding:7px 14px;border-radius:99px;
+  transition:background .3s;
+}
+.timer-pill.warn{background:var(--red);animation:pulseRed 1s infinite}
+@keyframes pulseRed{0%,100%{opacity:1}50%{opacity:.65}}
+.link-submit{
+  background:none;border:none;cursor:pointer;
+  font:inherit;font-size:13px;font-weight:700;color:var(--gold-600);
+  padding:6px 4px;
+}
+.link-submit:hover{text-decoration:underline}
+
+.quiz-body{padding:22px 0 60px}
+.progress-head{
+  display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;gap:10px;
+}
+.progress-head .count{font-size:13.5px;font-weight:700;color:var(--green-800)}
+.progress-head .pname{font-size:12.5px;color:var(--muted);font-weight:600;max-width:45%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pbar{height:7px;background:#e7ebe5;border-radius:99px;overflow:hidden;margin-bottom:22px}
+.pfill{
+  height:100%;width:0%;
+  background:linear-gradient(90deg,var(--green-700),var(--gold));
+  border-radius:99px;
+  transition:width .4s ease;
+}
+
+.qcard{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:28px 26px;
+  box-shadow:var(--shadow);
+}
+.qcard.anim-in{animation:qIn .4s ease both}
+@keyframes qIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.badge-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;align-items:center}
+.chip{
+  font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+  padding:5px 12px;border-radius:99px;
+}
+.chip-easy{background:var(--ok-50);color:var(--ok);border:1px solid #cde8d9}
+.chip-medium{background:#fdf6e3;color:#8a6d1d;border:1px solid #efe0b4}
+.chip-hard{background:#fdeee6;color:#b3541e;border:1px solid #f2d5c2}
+.chip-vhard{background:#f3ecfb;color:#6b3fa0;border:1px solid #e0d2f2}
+.chip-impossible{
+  background:linear-gradient(135deg,var(--gold),#ecd89c);
+  color:var(--green-950);border:1px solid var(--gold-600);
+  animation:pulseGold 2.2s infinite;
+}
+@keyframes pulseGold{
+  0%,100%{box-shadow:0 0 0 0 rgba(200,162,75,.5)}
+  50%{box-shadow:0 0 0 7px rgba(200,162,75,0)}
+}
+.chip-type{background:var(--green-50);color:var(--green-700);border:1px solid #d5e5da}
+.chip-points{background:#f2f3f0;color:var(--muted);border:1px solid var(--line);margin-left:auto}
+.qtext{
+  font-size:17.5px;font-weight:700;line-height:1.55;color:var(--green-950);
+  margin-bottom:20px;
+}
+.sublist{
+  margin:0 0 20px;padding:14px 16px 14px 34px;
+  background:rgba(255,255,255,.06);
+  border:1px dashed rgba(200,162,75,.45);
+  border-radius:12px;
+  font-size:14px;
+}
+.sublist li{margin-bottom:5px}
+.sublist li:last-child{margin-bottom:0}
+
+.opts{display:grid;gap:10px}
+.opt{
+  display:flex;gap:13px;align-items:flex-start;
+  width:100%;text-align:left;
+  background:#fbfcfa;
+  border:1.5px solid var(--line);
+  border-radius:13px;
+  padding:14px 16px;
+  cursor:pointer;
+  font:inherit;font-size:14.5px;color:var(--text);
+  transition:border-color .18s, background .18s, transform .12s, box-shadow .18s;
+}
+.opt:hover{border-color:var(--green-600);background:var(--green-50);transform:translateY(-1px)}
+.opt.selected{
+  border-color:var(--green-700);
+  background:#eaf5ee;
+  box-shadow:0 0 0 3px rgba(26,92,63,.12);
+}
+.opt .key{
+  width:28px;height:28px;flex-shrink:0;
+  border-radius:50%;
+  border:1.5px solid #c9d2cb;
+  display:grid;place-items:center;
+  font-weight:800;font-size:12.5px;color:var(--muted);
+  background:#fff;
+  transition:.18s;
+}
+.opt.multi .key{border-radius:8px}
+.opt.selected .key{background:var(--green-700);border-color:var(--green-700);color:#fff}
+.opt .otext{padding-top:2px;font-weight:600}
+.multi-hint{
+  font-size:12.5px;font-weight:700;color:var(--gold-600);
+  background:var(--gold-100);border:1px solid #ead9ac;
+  border-radius:9px;padding:7px 12px;margin-bottom:14px;
+  display:inline-block;
+}
+textarea.answer-input{
+  width:100%;min-height:170px;resize:vertical;
+  border:1.5px solid var(--line);border-radius:13px;
+  padding:15px;font:inherit;font-size:14.5px;color:var(--text);
+  background:#fbfcfa;outline:none;
+  transition:border-color .2s, box-shadow .2s;
+  line-height:1.7;
+}
+textarea.answer-input:focus{border-color:var(--green-600);box-shadow:0 0 0 3px rgba(34,112,77,.12);background:#fff}
+.ta-hint{font-size:12px;color:var(--muted);margin-top:7px;font-weight:500}
+
+.impossible-check{
+  display:flex;gap:11px;align-items:flex-start;
+  background:rgba(200,162,75,.1);
+  border:1.5px solid rgba(200,162,75,.5);
+  border-radius:12px;padding:13px 15px;margin:18px 0 14px;
+  cursor:pointer;font-size:13.5px;font-weight:600;color:#f0e6cd;
+}
+.impossible-check input{margin-top:3px;accent-color:var(--gold);width:17px;height:17px;cursor:pointer;flex-shrink:0}
+
+/* impossible card theme */
+.qcard.impossible{
+  background:linear-gradient(165deg,#0a2c20 0%,#0e3a29 60%,#123f2e 100%);
+  border:1px solid rgba(200,162,75,.4);
+  color:#eee7d4;
+}
+.qcard.impossible .qtext{color:#fdf6e3}
+.qcard.impossible textarea.answer-input{
+  background:rgba(255,255,255,.06);border-color:rgba(200,162,75,.4);color:#f4efe0;
+}
+.qcard.impossible textarea.answer-input::placeholder{color:rgba(244,239,224,.4)}
+.qcard.impossible textarea.answer-input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(200,162,75,.2);background:rgba(255,255,255,.08)}
+.qcard.impossible .ta-hint{color:rgba(238,231,212,.6)}
+
+.navrow{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:22px;
+}
+.navrow .mid{font-size:13px;font-weight:800;color:var(--muted);font-variant-numeric:tabular-nums}
+
+/* ===== MODAL ===== */
+.modal-overlay{
+  position:fixed;inset:0;z-index:100;
+  background:rgba(7,35,26,.55);
+  backdrop-filter:blur(3px);
+  display:flex;align-items:center;justify-content:center;
+  padding:20px;
+  animation:fadeInBg .25s ease both;
+}
+@keyframes fadeInBg{from{opacity:0}to{opacity:1}}
+.modal{
+  background:#fff;border-radius:18px;max-width:430px;width:100%;
+  padding:28px 26px;box-shadow:0 20px 60px rgba(0,0,0,.3);
+  animation:modalIn .3s cubic-bezier(.2,.9,.3,1.2) both;
+}
+@keyframes modalIn{from{opacity:0;transform:translateY(24px) scale(.96)}to{opacity:1;transform:none}}
+.modal h3{font-size:18px;font-weight:800;color:var(--green-900);margin-bottom:8px}
+.modal p{font-size:14px;color:var(--muted);margin-bottom:16px}
+.modal .stat-line{
+  display:flex;gap:10px;margin-bottom:18px;flex-wrap:wrap;
+}
+.modal .mini-stat{
+  flex:1;min-width:110px;text-align:center;
+  background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:10px;
+}
+.modal .mini-stat b{display:block;font-size:20px;color:var(--green-800)}
+.modal .mini-stat span{font-size:11.5px;color:var(--muted);font-weight:600}
+.modal-actions{display:flex;gap:10px}
+.modal-actions .btn{flex:1;padding:12px 16px;font-size:14px}
+
+/* ===== RESULT SCREEN ===== */
+.result-wrap{padding:34px 0 70px}
+.result-head{text-align:center;margin-bottom:26px}
+.result-head .tag{
+  display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gold-600);background:var(--gold-100);border:1px solid #ead9ac;
+  padding:6px 16px;border-radius:99px;margin-bottom:12px;
+}
+.result-head h1{font-size:clamp(24px,4.5vw,32px);color:var(--green-950)}
+.result-head .pname-big{font-size:15px;color:var(--muted);font-weight:600;margin-top:4px}
+
+.score-panel{
+  background:linear-gradient(160deg,#0a2c20,#123f2e);
+  border-radius:22px;padding:34px 24px;text-align:center;color:#f2ecda;
+  box-shadow:var(--shadow);position:relative;overflow:hidden;
+  animation:qIn .5s ease both;
+}
+.score-panel::before{
+  content:"";position:absolute;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg width='90' height='90' viewBox='0 0 90 90' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23c8a24b' stroke-width='1' opacity='0.1'%3E%3Cpath d='M45 6 L54 36 L84 45 L54 54 L45 84 L36 54 L6 45 L36 36 Z'/%3E%3C/g%3E%3C/svg%3E");
+}
+.score-panel > *{position:relative}
+.ring-wrap{position:relative;width:190px;height:190px;margin:0 auto 18px}
+.ring{width:100%;height:100%;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:12;stroke-linecap:round}
+.ring-bg{stroke:rgba(255,255,255,.12)}
+.ring-fg{stroke:url(#goldGrad);stroke-dasharray:540.35;stroke-dashoffset:540.35;transition:stroke-dashoffset 1.6s cubic-bezier(.25,.8,.3,1)}
+.ring-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring-center .big{font-size:46px;font-weight:800;color:#fdf6e3;line-height:1;font-variant-numeric:tabular-nums}
+.ring-center small{font-size:12px;color:rgba(242,236,218,.6);font-weight:700;margin-top:4px;letter-spacing:.08em}
+.predicate{
+  display:inline-block;font-size:14px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+  padding:9px 24px;border-radius:99px;margin-top:2px;
+}
+.pred-excellent{background:linear-gradient(135deg,var(--gold),#ecd89c);color:var(--green-950)}
+.pred-verygood{background:#eaf5ee;color:#1e7d4f;border:1px solid #bcdcc9}
+.pred-good{background:#e8f0fb;color:#2a5d9f;border:1px solid #c4d8f0}
+.pred-average{background:#fdf6e3;color:#8a6d1d;border:1px solid #e8d9a8}
+.pred-needs{background:#fdeee6;color:#b3541e;border:1px solid #eec9ae}
+.raw-note{font-size:12px;color:rgba(242,236,218,.55);margin-top:12px;font-weight:500}
+
+.stats-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:22px 0 34px;
+}
+.stat-card{
+  background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:16px;text-align:center;box-shadow:0 4px 14px rgba(12,51,37,.05);
+  animation:qIn .5s ease both;
+}
+.stat-card:nth-child(1){animation-delay:.05s}
+.stat-card:nth-child(2){animation-delay:.12s}
+.stat-card:nth-child(3){animation-delay:.19s}
+.stat-card:nth-child(4){animation-delay:.26s}
+.stat-card:nth-child(5){animation-delay:.33s}
+.stat-card b{display:block;font-size:26px;font-weight:800;color:var(--green-800);font-variant-numeric:tabular-nums}
+.stat-card span{display:block;font-size:12px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-top:2px}
+.stat-card.c-ok b{color:var(--ok)}
+.stat-card.c-bad b{color:var(--red)}
+.stat-card.c-empty b{color:#8a978f}
+
+.review-head{
+  display:flex;align-items:center;gap:14px;margin-bottom:18px;
+}
+.review-head h2{font-size:20px;color:var(--green-950);white-space:nowrap}
+.review-head .line{flex:1;height:1.5px;background:linear-gradient(90deg,var(--gold),transparent)}
+
+.rev-card{
+  background:var(--card);border:1px solid var(--line);border-left:5px solid var(--line);
+  border-radius:14px;padding:20px 20px;margin-bottom:14px;
+  animation:qIn .45s ease both;
+}
+.rev-card.rv-correct{border-left-color:var(--ok)}
+.rev-card.rv-wrong{border-left-color:var(--red)}
+.rev-card.rv-empty{border-left-color:#aab5ad}
+.rev-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+.rev-top .rev-title{font-weight:800;font-size:14px;color:var(--green-900)}
+.rev-top .rev-chips{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.rev-score{font-size:12.5px;font-weight:800;padding:4px 11px;border-radius:99px;background:var(--bg);border:1px solid var(--line);color:var(--muted);font-variant-numeric:tabular-nums}
+.rev-score.full{background:var(--ok-50);color:var(--ok);border-color:#cde8d9}
+.rev-q{font-size:14.5px;font-weight:700;color:var(--text);margin-bottom:12px}
+.rev-block{font-size:13.5px;border-radius:10px;padding:10px 13px;margin-bottom:9px}
+.rev-block .lbl{display:block;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin-bottom:3px}
+.rev-yours{background:#f4f6f3;border:1px solid var(--line);color:#39443e}
+.rev-yours .lbl{color:var(--muted)}
+.rev-right{background:var(--ok-50);border:1px solid #cde8d9;color:#1c4d36}
+.rev-right .lbl{color:var(--ok)}
+.rev-wrongans{background:var(--red-50);border:1px solid #f0cdc8;color:#7c2d24}
+.rev-wrongans .lbl{color:var(--red)}
+.rev-exp{font-size:13.5px;color:#4a564f;background:var(--gold-100);border:1px solid #ead9ac;border-radius:10px;padding:11px 13px;margin-top:4px}
+.rev-exp .lbl{display:block;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-600);margin-bottom:3px}
+.rev-opts{display:grid;gap:6px;margin-bottom:10px}
+.rev-opt{
+  display:flex;gap:9px;align-items:flex-start;font-size:13.5px;font-weight:600;
+  padding:8px 12px;border-radius:9px;border:1px solid var(--line);background:#fbfcfa;color:#4a564f;
+}
+.rev-opt .mk{font-weight:800;flex-shrink:0}
+.rev-opt.is-correct{background:var(--ok-50);border-color:#cde8d9;color:#1c4d36}
+.rev-opt.is-picked-wrong{background:var(--red-50);border-color:#f0cdc8;color:#7c2d24}
+
+.result-actions{display:flex;gap:12px;justify-content:center;margin-top:30px;flex-wrap:wrap}
+.foot-note{
+  text-align:center;font-size:11.5px;color:#9aa59d;margin-top:26px;line-height:1.7;padding:0 12px;
+}
+
+/* responsive */
+@media (max-width:560px){
+  .hero{padding:38px 20px 32px;border-radius:20px}
+  .qcard{padding:22px 18px;border-radius:14px}
+  .navrow{flex-wrap:wrap}
+  .navrow .btn{flex:1;min-width:130px}
+  .navrow .mid{order:-1;width:100%;text-align:center}
+  .topbar-inner{padding:8px 12px}
+  .link-submit{display:none}
+  .qtext{font-size:16px}
+  .modal-actions{flex-direction:column-reverse}
+  .ring-wrap{width:160px;height:160px}
+  .ring-center .big{font-size:38px}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ START SCREEN ============ -->
+<section id="screen-start" class="screen">
+  <div class="container start-wrap">
+    <div class="hero fade-in">
+      <div class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M12 2.5 L14.2 9.8 L21.5 12 L14.2 14.2 L12 21.5 L9.8 14.2 L2.5 12 L9.8 9.8 Z" fill="#c8a24b"/>
+        </svg>
+      </div>
+      <span class="kicker">Kuis Pemahaman Materi</span>
+      <h1>Marriage <span>Knowledge</span> Challenge</h1>
+      <p class="subtitle">Ujian interaktif bertema Pernikahan dalam Islam</p>
+      <div class="stat-row">
+        <div class="stat-chip"><span class="num">10</span><span class="lbl">Soal</span></div>
+        <div class="stat-chip"><span class="num">15 Menit</span><span class="lbl">Estimasi Waktu</span></div>
+        <div class="stat-chip"><span class="num">Easy → Impossible</span><span class="lbl">Kesulitan</span></div>
+      </div>
+    </div>
+
+    <div class="form-card fade-in" style="animation-delay:.1s">
+      <h2>Selamat Datang, Peserta 🌙</h2>
+      <p class="desc">Uji pemahamanmu tentang pernikahan dalam Islam. Soal disusun bertingkat dari mudah hingga <b>mustahil dijawab</b>. Nilai maksimal <b>100</b>. Kerjakan dengan jujur — pembahasan baru ditampilkan setelah ujian dikumpulkan.</p>
+      <ul class="material-list">
+        <li>Hikmah Pernikahan dalam Islam</li>
+        <li>Tujuan Pernikahan dalam Islam</li>
+        <li>Dalil &amp; Hadis tentang Anjuran Menikah</li>
+        <li>QS. Ar-Rum: 21 · QS. An-Nahl: 72 · QS. An-Nur: 32</li>
+      </ul>
+      <label class="field-label" for="nameInput">Nama Panggilan Peserta</label>
+      <input type="text" id="nameInput" class="text-input" maxlength="30" placeholder="Contoh: Fatih, Aisyah, Rahmat…" autocomplete="off">
+      <div class="error-msg" id="nameError">Mohon masukkan nama panggilan minimal 2 karakter (huruf/angka).</div>
+      <br>
+      <button class="btn btn-gold btn-block" id="btnStart">MULAI KUIS →</button>
+    </div>
+    <p class="foot-note">Kuis berjalan sepenuhnya di perangkatmu (tanpa server/database). Progres tersimpan otomatis di browser.<br>Catatan kejujuran: karena berbasis web statis, sistem ini <b>tidak diklaim anti-curang penuh</b> —andalkan integritas peserta. 🙂</p>
+  </div>
+</section>
+
+<!-- ============ QUIZ SCREEN ============ -->
+<section id="screen-quiz" class="screen">
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand-sm"><span class="dot">✦</span> MKC</div>
+      <div class="topbar-right">
+        <button class="link-submit" id="btnTopSubmit">Kumpulkan ⏎</button>
+        <div class="timer-pill" id="timerPill">⏱ <span id="timerText">15:00</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="container quiz-body">
+    <div class="progress-head">
+      <span class="count" id="progCount">Soal 1 dari 10</span>
+      <span class="pname" id="progName"></span>
+    </div>
+    <div class="pbar"><div class="pfill" id="progFill"></div></div>
+    <div id="qwrap"></div>
+    <div class="navrow">
+      <button class="btn btn-ghost" id="btnPrev">← Sebelumnya</button>
+      <span class="mid" id="navCount">1 / 10</span>
+      <button class="btn btn-primary" id="btnNext">Selanjutnya →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESULT SCREEN ============ -->
+<section id="screen-result" class="screen">
+  <div class="container result-wrap">
+    <div class="result-head">
+      <span class="tag">Hasil Ujian</span>
+      <h1 class="serif">Marriage Knowledge Challenge</h1>
+      <div class="pname-big">Peserta: <b id="resName">—</b></div>
+    </div>
+
+    <div class="score-panel">
+      <div class="ring-wrap">
+        <svg class="ring" viewBox="0 0 200 200">
+          <defs>
+            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#c8a24b"/>
+              <stop offset="100%" stop-color="#ecd89c"/>
+            </linearGradient>
+          </defs>
+          <circle class="ring-bg" cx="100" cy="100" r="86"/>
+          <circle class="ring-fg" id="ringFg" cx="100" cy="100" r="86"/>
+        </svg>
+        <div class="ring-center">
+          <span class="big" id="scoreNum">0</span>
+          <small>dari 100</small>
+        </div>
+      </div>
+      <div><span class="predicate" id="predBadge">—</span></div>
+      <div class="raw-note" id="rawNote"></div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card c-ok"><b id="stCorrect">0</b><span>Benar</span></div>
+      <div class="stat-card c-bad"><b id="stWrong">0</b><span>Salah</span></div>
+      <div class="stat-card c-empty"><b id="stEmpty">0</b><span>Kosong</span></div>
+      <div class="stat-card"><b id="stDuration">00:00</b><span>Durasi</span></div>
+      <div class="stat-card"><b id="stPercent">0%</b><span>Keberhasilan</span></div>
+    </div>
+
+    <div class="review-head"><h2 class="serif">Pembahasan Jawaban</h2><div class="line"></div></div>
+    <div id="reviewWrap"></div>
+
+    <div class="result-actions">
+      <button class="btn btn-ghost" id="btnRetake">↺ Mulai Ulang Kuis</button>
+    </div>
+    <p class="foot-note">Nilai akhir dinormalisasi ke skala 100 dari total 95 poin mentah sesuai distribusi bobot soal.<br>Soal uraian dinilai otomatis dengan rubrik kata kunci &amp; kelengkapan — bukan oleh AI eksternal.</p>
+  </div>
+</section>
+
+<!-- ============ CONFIRM MODAL ============ -->
+<div class="modal-overlay hidden" id="modalOverlay">
+  <div class="modal">
+    <h3>Kumpulkan Ujian?</h3>
+    <p id="modalMsg">Setelah dikumpulkan, jawaban tidak dapat diubah lagi.</p>
+    <div class="stat-line">
+      <div class="mini-stat"><b id="mAnswered">0</b><span>Terjawab</span></div>
+      <div class="mini-stat"><b id="mUnanswered">0</b><span>Belum Dijawab</span></div>
+      <div class="mini-stat"><b id="mTime">15:00</b><span>Sisa Waktu</span></div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" id="btnCancelSubmit">Batal</button>
+      <button class="btn btn-primary" id="btnConfirmSubmit">Ya, Kumpulkan</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+'use strict';
+
+/* ================= DATA SOAL ================= */
+var QUESTIONS = [
+  {
+    type:'single', level:'Level 1 · Mudah', chip:'chip-easy', points:5,
+    q:'Apa salah satu tujuan utama pernikahan dalam Islam?',
+    options:[
+      {k:'A', t:'Memperoleh kekayaan secara otomatis.'},
+      {k:'B', t:'Mematuhi perintah Allah Swt. dan meningkatkan ibadah.'},
+      {k:'C', t:'Mendapatkan kedudukan sosial.'},
+      {k:'D', t:'Menghindari seluruh tanggung jawab kehidupan.'}
+    ],
+    correct:'B',
+    explanation:'Tujuan utama pernikahan dalam Islam adalah melaksanakan perintah Allah Swt., menyempurnakan ibadah, menjaga kehormatan diri, dan membina keluarga yang sakinah. Pernikahan bukan sarana otomatis memperoleh kekayaan, kedudukan sosial, atau untuk lari dari tanggung jawab kehidupan.'
+  },
+  {
+    type:'single', level:'Level 1 · Mudah', chip:'chip-easy', points:5,
+    q:'Menurut materi, salah satu tujuan pernikahan adalah membina keluarga yang bahagia dan saling menyayangi. Konsep ketenteraman dalam rumah tangga dikenal dengan istilah …',
+    options:[
+      {k:'A', t:'Muamalah.'},
+      {k:'B', t:'Sakinah.'},
+      {k:'C', t:'Takabur.'},
+      {k:'D', t:'Riya.'}
+    ],
+    correct:'B',
+    explanation:'Sakinah berarti ketenangan dan ketenteraman. Dalam QS. Ar-Rum ayat 21, Allah menjadikan pasangan hidup agar manusia merasa tenteram kepadanya, dan Allah menjadikan di antara keduanya mawaddah (cinta) serta rahmah (kasih sayang).'
+  },
+  {
+    type:'single', level:'Level 1 · Mudah', chip:'chip-easy', points:5,
+    q:'Apa yang dimaksud dengan salah satu hikmah pernikahan berupa menjaga pandangan?',
+    options:[
+      {k:'A', t:'Membatasi seluruh interaksi sosial.'},
+      {k:'B', t:'Menghindarkan diri dari pandangan yang dilarang agama.'},
+      {k:'C', t:'Menghindari tanggung jawab keluarga.'},
+      {k:'D', t:'Tidak boleh melihat orang lain.'}
+    ],
+    correct:'B',
+    explanation:'Menjaga pandangan berarti menghindarkan diri dari pandangan yang dilarang agama. Sesuai hadis riwayat Bukhari dan Muslim: menikah itu lebih menundukkan pandangan dan lebih menjaga kemaluan. Islam tidak melarang seluruh interaksi sosial secara mutlak, melainkan mengatur adabnya.'
+  },
+  {
+    type:'single', level:'Level 2 · Menengah', chip:'chip-medium', points:7,
+    q:'Surah Ar-Rum ayat 21 menjelaskan tentang tanda-tanda kebesaran Allah melalui penciptaan pasangan agar manusia memperoleh …',
+    options:[
+      {k:'A', t:'Kekayaan dan kekuasaan.'},
+      {k:'B', t:'Sakinah, mawaddah, dan rahmah.'},
+      {k:'C', t:'Jabatan dan ketenaran.'},
+      {k:'D', t:'Kebebasan tanpa tanggung jawab.'}
+    ],
+    correct:'B',
+    explanation:'QS. Ar-Rum ayat 21: "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang." Ayat ini menjadi dasar konsep keluarga sakinah, mawaddah, wa rahmah.'
+  },
+  {
+    type:'single', level:'Level 2 · Menengah', chip:'chip-medium', points:7,
+    q:'Menurut materi, pernikahan dapat menjadi sarana untuk memperoleh keturunan yang baik. Surah yang disebutkan dalam pembahasan tersebut adalah …',
+    options:[
+      {k:'A', t:'An-Nahl ayat 72.'},
+      {k:'B', t:'Al-Fatihah ayat 1.'},
+      {k:'C', t:'Al-Ikhlas ayat 4.'},
+      {k:'D', t:'Al-Kautsar ayat 1.'}
+    ],
+    correct:'A',
+    explanation:'QS. An-Nahl ayat 72 menjelaskan bahwa Allah menjadikan bagi manusia pasangan dari jenisnya sendiri, menjadikan anak dan cucu (keturunan) dari pasangannya, serta memberi rezeki dari yang baik-baik.'
+  },
+  {
+    type:'single', level:'Level 2 · Menengah', chip:'chip-medium', points:7,
+    q:'Pernikahan merupakan salah satu sunah Rasulullah saw. Manakah pernyataan yang paling sesuai dengan materi?',
+    options:[
+      {k:'A', t:'Pernikahan hanya bertujuan memenuhi kebutuhan biologis.'},
+      {k:'B', t:'Pernikahan merupakan bagian dari tuntunan agama dan dapat menyempurnakan kehidupan beragama.'},
+      {k:'C', t:'Pernikahan tidak memiliki hubungan dengan ibadah.'},
+      {k:'D', t:'Pernikahan hanya diwajibkan bagi orang kaya.'}
+    ],
+    correct:'B',
+    explanation:'Pernikahan adalah sunnah Rasulullah saw. dan bagian dari tuntunan agama. Dalam hadis riwayat Al-Baihaqi disebutkan bahwa siapa yang menikah berarti ia telah menyempurnakan separuh agamanya. Jadi pernikahan bernilai ibadah, bukan semata pemenuhan kebutuhan biologis, dan Islam tidak mensyaratkan kaya untuk menikah (QS. An-Nur: 32 — "Jika mereka miskin, Allah akan memampukan mereka dengan karunia-Nya").'
+  },
+  {
+    type:'multi', level:'Level 3 · Sulit', chip:'chip-hard', points:10,
+    q:'Pilih SEMUA pernyataan yang termasuk hikmah pernikahan berdasarkan materi.',
+    options:[
+      {k:'A', t:'Melaksanakan perintah Allah Swt. dan Rasul-Nya.'},
+      {k:'B', t:'Membentuk keluarga bahagia dan saling menyayangi.'},
+      {k:'C', t:'Mendapatkan generasi penerus yang sah.'},
+      {k:'D', t:'Memutus tali silaturahmi.'},
+      {k:'E', t:'Membuka pintu rezeki dari Allah Swt.'},
+      {k:'F', t:'Menjauhkan diri dari dosa besar zina.'}
+    ],
+    correct:['A','B','C','E','F'],
+    explanation:'Hikmah pernikahan berdasarkan materi: (A) melaksanakan perintah Allah dan Rasul-Nya; (B) membentuk keluarga bahagia yang saling menyayangi (sakinah, mawaddah, rahmah — QS. Ar-Rum: 21); (C) memperoleh generasi penerus yang sah (QS. An-Nahl: 72); (E) membuka pintu rezeki dari Allah Swt. (QS. An-Nur: 32); (F) menjauhkan diri dari dosa besar zina. Pernyataan D salah karena pernikahan justru mempererat tali silaturahmi antar-keluarga, bukan memutusnya. Penilaian exact match: 10 poin hanya jika seluruh pilihan tepat tanpa kelebihan/kekurangan.'
+  },
+  {
+    type:'text', level:'Level 3 · Sulit', chip:'chip-hard', points:15,
+    q:'Analisis Kasus — Seseorang menikah hanya karena ingin memenuhi kebutuhan biologis. Ia tidak memedulikan tanggung jawab, ketenteraman keluarga, pendidikan keturunan, maupun pembinaan akhlak. Analisislah mengapa pemahaman tersebut belum mencerminkan tujuan pernikahan dalam Islam.',
+    ideal:'Jawaban ideal mencakup: (1) pernikahan bukan sekadar pemenuhan kebutuhan biologis; (2) pernikahan merupakan ibadah dan pelaksanaan sunnah Rasulullah saw.; (3) terdapat tanggung jawab membangun dan menafkahi keluarga; (4) tujuan membina kasih sayang dan ketenteraman (sakinah, mawaddah, rahmah); (5) memperoleh keturunan yang baik serta membina akhlak/pendidikannya.',
+    explanation:'Pemahaman tersebut keliru karena dalam Islam pernikahan adalah ibadah yang bersifat menyeluruh: menaati perintah Allah dan sunnah Rasul, menjaga kehormatan, membangun ketenteraman keluarga (QS. Ar-Rum: 21), memikul tanggung jawab nafkah dan pendidikan, serta membina keturunan yang saleh (QS. An-Nahl: 72). Mereduksi pernikahan menjadi kebutuhan biologis semata menghilangkan seluruh dimensi ibadah dan tanggung jawab tersebut.'
+  },
+  {
+    type:'text', level:'Level 4 · Sangat Sulit', chip:'chip-vhard', points:20,
+    q:'Analisis Komprehensif — Jelaskan hubungan antara tujuan pernikahan dan hikmah pernikahan dalam Islam. Berikan minimal EMPAT hubungan sebab-akibat yang logis dengan menggunakan materi yang telah dipelajari.',
+    ideal:'Jawaban ideal menghubungkan konsep-konsep berikut secara sebab-akibat: ketaatan kepada Allah, mengikuti sunnah Rasulullah, menjaga kehormatan diri, membangun keluarga sakinah, memperoleh keturunan yang baik, memperkuat silaturahmi, dan membina kasih sayang. Contoh: menikah karena taat kepada Allah → Allah mengaruniakan ketenteraman dan menjauhkan dari zina; mengikuti sunnah Rasul → menyempurnakan separuh agama; menjaga kehormatan → terwujud keluarga sakinah; membina kasih sayang → lahir keturunan yang baik dan silaturahmi yang kuat.',
+    explanation:'Tujuan dan hikmah pernikahan saling berkaitan sebab-akibat: tujuan yang benar (ta`at kepada Allah, mengikuti sunnah Rasul) melahirkan hikmah (terjaganya kehormatan, keluarga sakinah, keturunan yang baik, rezeki yang diberkahi — QS. An-Nur: 32, serta menguatnya silaturahmi dan kasih sayang — QS. Ar-Rum: 21). Penilaian berdasarkan kualitas argumentasi dan kelengkapan hubungan logis, bukan panjang jawaban.'
+  },
+  {
+    type:'impossible', level:'IMPOSSIBLE CHALLENGE', chip:'chip-impossible', points:14,
+    q:'Berdasarkan SELURUH materi yang diberikan, tentukan secara tepat:',
+    subs:[
+      'Nama lengkap pasangan pertama yang menjadi objek pembahasan dalam buku.',
+      'Tanggal dan jam pernikahan mereka.',
+      'Jumlah anak biologis mereka.',
+      'Nama seluruh keturunannya sampai tujuh generasi.',
+      'Kutipan langsung percakapan pribadi mereka pada hari pernikahan.'
+    ],
+    q2:'Seluruh jawaban harus disertai bukti dari materi.',
+    ideal:'Kunci jawaban soal ini: TIDAK ADA informasi dalam materi yang cukup untuk menjawab. Nilai penuh (14 poin) diberikan kepada peserta yang menyadari bahwa soal tidak dapat dijawab berdasarkan sumber yang tersedia dan menjelaskan alasannya. Menolak mengarang informasi yang tidak diketahui adalah jawaban yang BENAR.',
+    explanation:'Soal ini adalah jebakan epistemologis yang disengaja. Materi hanya membahas hikmah, tujuan, dan dalil pernikahan dalam Islam (QS. Ar-Rum: 21, An-Nahl: 72, An-Nur: 32 serta hadis-hadis anjuran menikah) — tidak memuat nama pasangan tertentu, tanggal/jam pernikahan, jumlah anak, silsilah tujuh generasi, maupun percakapan pribadi siapa pun. Peserta yang mengarang jawaban berarti mengklaim pengetahuan yang tidak didukung sumber; peserta yang menyatakan "tidak dapat ditentukan dari materi" telah menunjukkan kemampuan membedakan informasi yang diketahui, tidak diketahui, dan tidak dapat disimpulkan.'
+  }
+];
+var RAW_MAX = 95; // 15+21+10+15+20+14 (dinormalisasi ke 100)
+var TOTAL_TIME = 15*60;
+var LS_KEY = 'mkc_state_v1';
+
+/* ================= STATE ================= */
+var state = null;
+var timerId = null;
+var saveT = null;
+
+function defaultState(){
+  return {name:'', started:false, submitted:false, current:0, answers:{}, remaining:TOTAL_TIME, result:null};
+}
+function loadState(){
+  try{
+    var raw = localStorage.getItem(LS_KEY);
+    if(raw){
+      var s = JSON.parse(raw);
+      if(s && typeof s === 'object') return Object.assign(defaultState(), s);
+    }
+  }catch(e){}
+  return null;
+}
+function saveState(){
+  try{ localStorage.setItem(LS_KEY, JSON.stringify(state)); }catch(e){}
+}
+function debounceSave(){
+  clearTimeout(saveT);
+  saveT = setTimeout(saveState, 250);
+}
+
+/* ================= HELPERS ================= */
+function $(id){ return document.getElementById(id); }
+function norm(s){ return (s||'').toLowerCase().replace(/\s+/g,' ').trim(); }
+function esc(s){
+  return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+function fmtTime(sec){
+  sec = Math.max(0, sec|0);
+  var m = Math.floor(sec/60), s = sec%60;
+  return (m<10?'0':'')+m+':'+(s<10?'0':'')+s;
+}
+function showScreen(id){
+  ['screen-start','screen-quiz','screen-result'].forEach(function(s){
+    $(s).classList.toggle('active', s===id);
+  });
+  window.scrollTo({top:0, behavior:'instant' in window ? 'auto':'auto'});
+}
+
+function isEmptyAnswer(i){
+  var q = QUESTIONS[i], a = state.answers[i];
+  if(q.type==='single') return !a;
+  if(q.type==='multi') return !a || a.length===0;
+  if(q.type==='impossible'){
+    if(!a) return true;
+    return !a.checked && !norm(a.text);
+  }
+  return !norm(a);
+}
+function answeredCount(){
+  var n=0;
+  for(var i=0;i<QUESTIONS.length;i++) if(!isEmptyAnswer(i)) n++;
+  return n;
+}
+
+/* ================= PENILAIAN ================= */
+function gradeQ8(ans){
+  var t = norm(ans);
+  if(!t) return 0;
+  var earned = 0;
+  var groups = [
+    /biologis/,
+    /ibadah|beribadah/,
+    /tanggung\s?jawab|tanggungjawab|amanah/,
+    /sakinah|tenteram|tenang|kasih\s?sayang|mawaddah|rahmah/,
+    /keturunan|anak/,
+    /akhlak|pendidikan|agama/
+  ];
+  groups.forEach(function(g){ if(g.test(t)) earned += 2; }); // maks 12
+  if(t.length >= 80)  earned += 1;
+  if(t.length >= 160) earned += 1;
+  if(t.length >= 260) earned += 1; // maks 3
+  if(t.length < 30) earned = Math.min(earned, 3);
+  return Math.min(earned, 15);
+}
+function gradeQ9(ans){
+  var t = norm(ans);
+  if(!t) return 0;
+  var earned = 0;
+  var concepts = [
+    /taat|ketaatan|perintah allah|ibadah|allah/,
+    /sun(n)?ah|rasul|nabi/,
+    /kehormatan|pandangan|zina|kemaluan|menjaga diri/,
+    /sakinah|tenteram|tenang/,
+    /keturunan|anak|cucu/,
+    /silaturah/,
+    /kasih|sayang|mawaddah|rahmah/
+  ];
+  concepts.forEach(function(c){ if(c.test(t)) earned += 2; }); // maks 14
+  var causal = [/karena/, /sehingga/, /maka/, /menyebabkan|mengakibatkan/, /menghasilkan/, /dengan demikian|oleh karena itu/, /bertujuan|sarana/, /menjadi/];
+  var cc = 0;
+  causal.forEach(function(c){ if(c.test(t)) cc++; });
+  earned += Math.min(cc, 3) * 2; // maks 6 → total 20
+  if(t.length < 60) earned = Math.min(earned, 6);
+  else if(t.length < 120) earned = Math.min(earned, 12);
+  return Math.min(earned, 20);
+}
+function gradeQ10(ans){
+  if(!ans) return 0;
+  var t = norm(ans.text);
+  var checked = !!ans.checked;
+  var NEG = /tidak (dapat|bisa|cukup|tersedia|ada|diketahui|dimungkinkan|mungkin|terjawab|terdapat|disebutkan|dijelaskan|diberikan|dimuat|termuat)|tak (dapat|bisa|tersedia)|belum (tersedia|ada|terdapat|disebutkan|dijelaskan|dimuat)|mustahil|di luar materi|(informasi|materi|sumber|data|buku)[^.]{0,70}(tidak|kurang|terbatas)|(tidak|kurang)\s+(tersedia|cukup|memadai|lengkap)|tidak dapat disimpulkan|tidak disebutkan|tidak dijelaskan/;
+  var recognized = NEG.test(t) || checked;
+  if(checked && t.length >= 20 && NEG.test(t)) return 14;
+  if(!checked && t.length >= 40 && NEG.test(t)) return 14;
+  if(recognized) return 7; // sadar tapi penjelasan minim
+  return 0; // mengarang jawaban
+}
+function gradeOne(i){
+  var q = QUESTIONS[i], a = state.answers[i], earned = 0;
+  if(q.type === 'single'){
+    earned = (a === q.correct) ? q.points : 0;
+  } else if(q.type === 'multi'){
+    var picked = (a||[]).slice().sort().join(',');
+    var right  = q.correct.slice().sort().join(',');
+    earned = (picked === right) ? q.points : 0; // exact match
+  } else if(q.type === 'text'){
+    earned = (i===7) ? gradeQ8(a||'') : gradeQ9(a||'');
+  } else if(q.type === 'impossible'){
+    earned = gradeQ10(a);
+  }
+  return Math.max(0, Math.min(earned, q.points));
+}
+function computeResult(){
+  var raw = 0, correct = 0, wrong = 0, empty = 0;
+  var per = [];
+  for(var i=0;i<QUESTIONS.length;i++){
+    var q = QUESTIONS[i];
+    var earned = gradeOne(i);
+    var isEmp = isEmptyAnswer(i);
+    var status;
+    if(isEmp) { status = 'empty'; empty++; }
+    else if(earned >= q.points*0.5) { status = 'correct'; correct++; }
+    else { status = 'wrong'; wrong++; }
+    raw += earned;
+    per.push({earned:earned, status:status});
+  }
+  var final = Math.round(raw / RAW_MAX * 100);
+  var pred, predCls;
+  if(final >= 90){ pred='Excellent'; predCls='pred-excellent'; }
+  else if(final >= 80){ pred='Very Good'; predCls='pred-verygood'; }
+  else if(final >= 70){ pred='Good'; predCls='pred-good'; }
+  else if(final >= 60){ pred='Average'; predCls='pred-average'; }
+  else { pred='Needs Improvement'; predCls='pred-needs'; }
+  return {
+    raw:raw, final:final, correct:correct, wrong:wrong, empty:empty,
+    duration: TOTAL_TIME - state.remaining,
+    predicate:pred, predClass:predCls, per:per,
+    submittedAt: Date.now()
+  };
+}
+
+/* ================= TIMER ================= */
+function startTimer(){
+  stopTimer();
+  updateTimerUI();
+  timerId = setInterval(function(){
+    if(state.submitted){ stopTimer(); return; }
+    state.remaining = Math.max(0, state.remaining - 1);
+    updateTimerUI();
+    saveState();
+    if(state.remaining <= 0){
+      stopTimer();
+      submitExam(true);
+    }
+  }, 1000);
+}
+function stopTimer(){ if(timerId){ clearInterval(timerId); timerId = null; } }
+function updateTimerUI(){
+  var el = $('timerText'), pill = $('timerPill');
+  if(!el) return;
+  el.textContent = fmtTime(state.remaining);
+  pill.classList.toggle('warn', state.remaining <= 60);
+}
+
+/* ================= RENDER QUIZ ================= */
+function renderQuestion(){
+  var i = state.current, q = QUESTIONS[i], a = state.answers[i];
+  var isImp = (q.type === 'impossible');
+  var typeLabel = {single:'Pilihan Ganda', multi:'Pilihan Jamak', text:'Uraian Singkat', impossible:'Analisis Epistemologis'}[q.type];
+
+  var h = '';
+  h += '<div class="qcard '+(isImp?'impossible':'')+' anim-in">';
+  h += '<div class="badge-row">';
+  h += '<span class="chip '+q.chip+'">'+(isImp?'⚡ IMPOSSIBLE CHALLENGE':esc(q.level))+'</span>';
+  h += '<span class="chip chip-type">'+typeLabel+'</span>';
+  h += '<span class="chip chip-points">'+q.points+' Poin</span>';
+  h += '</div>';
+  h += '<div class="qtext">'+(i+1)+'. '+esc(q.q)+'</div>';
+
+  if(isImp && q.subs){
+    h += '<ol class="sublist">';
+    q.subs.forEach(function(s){ h += '<li>'+esc(s)+'</li>'; });
+    h += '</ol>';
+    h += '<div class="qtext" style="font-size:15px">'+esc(q.q2)+'</div>';
+  }
+
+  if(q.type === 'single' || q.type === 'multi'){
+    if(q.type === 'multi'){
+      h += '<div class="multi-hint">✦ Pilih semua yang sesuai — dinilai exact match (salah satu pilihan keliru = 0 poin)</div>';
+    }
+    h += '<div class="opts">';
+    q.options.forEach(function(o){
+      var sel;
+      if(q.type === 'single') sel = (a === o.k);
+      else sel = !!(a && a.indexOf(o.k) !== -1);
+      h += '<button type="button" class="opt '+(q.type==='multi'?'multi':'')+(sel?' selected':'')+'" data-key="'+o.k+'">';
+      h += '<span class="key">'+(sel?'✓':o.k)+'</span><span class="otext">'+esc(o.t)+'</span></button>';
+    });
+    h += '</div>';
+  }
+
+  if(isImp){
+    h += '<label class="impossible-check"><input type="checkbox" id="impCheck"'+(a&&a.checked?' checked':'')+'> Saya menyadari dan menyatakan bahwa soal ini <b>&nbsp;tidak dapat dijawab&nbsp;</b> berdasarkan materi/sumber yang tersedia.</label>';
+    h += '<textarea class="answer-input" id="ansText" maxlength="1500" placeholder="Jelaskan alasanmu: mengapa informasi yang diminta tidak dapat ditentukan dari materi? (Menolak mengarang jawaban adalah sikap yang benar pada soal ini.)">'+esc(a&&a.text?a.text:'')+'</textarea>';
+    h += '<div class="ta-hint">Jawaban dinilai berdasarkan kesadaran epistemologis &amp; penjelasan, bukan dari isi informasi yang dikarang.</div>';
+  } else if(q.type === 'text'){
+    h += '<textarea class="answer-input" id="ansText" maxlength="1500" placeholder="Tulis jawaban analismu di sini…">'+esc(a||'')+'</textarea>';
+    h += '<div class="ta-hint">Disarankan menulis terstruktur dan lengkap. Dinilai otomatis dengan rubrik kata kunci &amp; kualitas argumentasi.</div>';
+  }
+
+  h += '</div>';
+  $('qwrap').innerHTML = h;
+
+  // event binding
+  var opts = $('qwrap').querySelectorAll('.opt');
+  opts.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var key = btn.getAttribute('data-key');
+      if(q.type === 'single'){
+        state.answers[i] = key;
+      } else {
+        var arr = (state.answers[i]||[]).slice();
+        var idx = arr.indexOf(key);
+        if(idx === -1) arr.push(key); else arr.splice(idx,1);
+        state.answers[i] = arr;
+      }
+      saveState();
+      renderQuestion();
+    });
+  });
+
+  var ta = $('ansText');
+  if(ta){
+    ta.addEventListener('input', function(){
+      if(isImp){
+        var cur = state.answers[i] || {checked:false, text:''};
+        cur.text = ta.value;
+        state.answers[i] = cur;
+      } else {
+        state.answers[i] = ta.value;
+      }
+      debounceSave();
+    });
+  }
+  var chk = $('impCheck');
+  if(chk){
+    chk.addEventListener('change', function(){
+      var cur = state.answers[i] || {checked:false, text:''};
+      cur.checked = chk.checked;
+      state.answers[i] = cur;
+      saveState();
+    });
+  }
+
+  // progress & nav
+  $('progCount').textContent = 'Soal '+(i+1)+' dari '+QUESTIONS.length;
+  $('navCount').textContent = (i+1)+' / '+QUESTIONS.length;
+  $('progFill').style.width = ((i+1)/QUESTIONS.length*100)+'%';
+  $('progName').textContent = '👤 '+state.name;
+  $('btnPrev').disabled = (i === 0);
+  $('btnNext').innerHTML = (i === QUESTIONS.length-1) ? '✔ Kumpulkan Ujian' : 'Selanjutnya →';
+  if(i === QUESTIONS.length-1){
+    $('btnNext').className = 'btn btn-gold';
+  } else {
+    $('btnNext').className = 'btn btn-primary';
+  }
+}
+
+/* ================= NAVIGASI ================= */
+function goNext(){
+  if(state.current < QUESTIONS.length-1){
+    state.current++;
+    saveState();
+    renderQuestion();
+    window.scrollTo({top:0, behavior:'smooth'});
+  } else {
+    openConfirm();
+  }
+}
+function goPrev(){
+  if(state.current > 0){
+    state.current--;
+    saveState();
+    renderQuestion();
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+}
+
+/* ================= MODAL ================= */
+function openConfirm(){
+  var ans = answeredCount();
+  $('mAnswered').textContent = ans;
+  $('mUnanswered').textContent = QUESTIONS.length - ans;
+  $('mTime').textContent = fmtTime(state.remaining);
+  $('modalMsg').textContent = (ans < QUESTIONS.length)
+    ? 'Masih ada soal yang belum dijawab. Setelah dikumpulkan, jawaban tidak dapat diubah lagi.'
+    : 'Semua soal terjawab. Setelah dikumpulkan, jawaban tidak dapat diubah lagi.';
+  $('modalOverlay').classList.remove('hidden');
+}
+function closeConfirm(){ $('modalOverlay').classList.add('hidden'); }
+
+/* ================= SUBMIT & RESULT ================= */
+function submitExam(auto){
+  if(state.submitted) return; // cegah pengumpulan berulang
+  stopTimer();
+  if(auto) state.remaining = 0;
+  state.result = computeResult();
+  state.submitted = true;
+  saveState();
+  closeConfirm();
+  showResult();
+}
+
+function showResult(){
+  var r = state.result;
+  if(!r) return;
+  showScreen('screen-result');
+  $('resName').textContent = state.name;
+  $('stCorrect').textContent = r.correct;
+  $('stWrong').textContent = r.wrong;
+  $('stEmpty').textContent = r.empty;
+  $('stDuration').textContent = fmtTime(r.duration);
+  $('stPercent').textContent = r.final + '%';
+  $('rawNote').textContent = 'Poin mentah: '+r.raw+' / '+RAW_MAX+'  •  Dinormalisasi ke skala 100';
+  var badge = $('predBadge');
+  badge.textContent = r.predicate;
+  badge.className = 'predicate '+r.predClass;
+
+  // ring + count-up animation
+  var ring = $('ringFg');
+  var C = 2 * Math.PI * 86;
+  ring.style.strokeDasharray = C;
+  ring.style.strokeDashoffset = C;
+  var scoreEl = $('scoreNum');
+  scoreEl.textContent = '0';
+  requestAnimationFrame(function(){
+    setTimeout(function(){
+      ring.style.strokeDashoffset = C * (1 - r.final/100);
+    }, 150);
+  });
+  var start = performance.now(), dur = 1400;
+  function tick(now){
+    var p = Math.min(1, (now - start)/dur);
+    var eased = 1 - Math.pow(1-p, 3);
+    scoreEl.textContent = Math.round(r.final * eased);
+    if(p < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+
+  renderReview(r);
+}
+
+function renderReview(r){
+  var h = '';
+  for(var i=0;i<QUESTIONS.length;i++){
+    var q = QUESTIONS[i], pr = r.per[i], a = state.answers[i];
+    var rvCls = pr.status==='correct' ? 'rv-correct' : (pr.status==='wrong' ? 'rv-wrong' : 'rv-empty');
+    var stLabel = pr.status==='correct' ? '✓ Benar' : (pr.status==='wrong' ? '✗ Kurang Tepat' : '○ Tidak Dijawab');
+    var stChip = pr.status==='correct' ? 'chip-easy' : (pr.status==='wrong' ? 'chip-hard' : 'chip-type');
+    h += '<div class="rev-card '+rvCls+'">';
+    h += '<div class="rev-top">';
+    h += '<span class="rev-title">Soal '+(i+1)+' <span style="font-weight:600;color:var(--muted)">· '+stLabel+'</span></span>';
+    h += '<span class="rev-chips"><span class="chip '+stChip+'" style="font-size:10px">'+esc(q.level.replace(' · ',' · '))+'</span><span class="rev-score '+(pr.earned===q.points?'full':'')+'">'+pr.earned+' / '+q.points+' poin</span></span>';
+    h += '</div>';
+    h += '<div class="rev-q">'+esc(q.q)+'</div>';
+
+    if(q.type==='single'){
+      h += '<div class="rev-opts">';
+      q.options.forEach(function(o){
+        var cls = '';
+        var mk = o.k;
+        if(o.k === q.correct){ cls = 'is-correct'; mk = '✓ '+o.k; }
+        else if(a === o.k){ cls = 'is-picked-wrong'; mk = '✗ '+o.k; }
+        h += '<div class="rev-opt '+cls+'"><span class="mk">'+mk+'</span><span>'+esc(o.t)+'</span></div>';
+      });
+      h += '</div>';
+      h += '<div class="rev-block rev-right"><span class="lbl">Jawaban Benar</span>'+q.correct+'. '+esc((q.options.filter(function(o){return o.k===q.correct})[0]||{t:''}).t)+'</div>';
+      if(a && a !== q.correct){
+        h += '<div class="rev-block rev-wrongans"><span class="lbl">Jawabanmu</span>'+a+'. '+esc((q.options.filter(function(o){return o.k===a})[0]||{t:''}).t)+'</div>';
+      } else if(!a){
+        h += '<div class="rev-block rev-yours"><span class="lbl">Jawabanmu</span>— (tidak dijawab) —</div>';
+      }
+    }
+    else if(q.type==='multi'){
+      h += '<div class="rev-opts">';
+      q.options.forEach(function(o){
+        var inRight = q.correct.indexOf(o.k)!==-1;
+        var picked = !!(a && a.indexOf(o.k)!==-1);
+        var cls='', mk=o.k;
+        if(inRight){ cls='is-correct'; mk='✓ '+o.k; }
+        else if(picked){ cls='is-picked-wrong'; mk='✗ '+o.k; }
+        h += '<div class="rev-opt '+cls+'"><span class="mk">'+mk+'</span><span>'+esc(o.t)+(picked&&!inRight?' <i>(kamu pilih)</i>':'')+'</span></div>';
+      });
+      h += '</div>';
+      h += '<div class="rev-block rev-right"><span class="lbl">Kunci (Exact Match)</span>'+q.correct.join(', ')+'</div>';
+      h += '<div class="rev-block '+(pr.status==='wrong'?'rev-wrongans':'rev-yours')+'"><span class="lbl">Jawabanmu</span>'+(a&&a.length?esc(a.slice().sort().join(', ')):'— (tidak dijawab) —')+'</div>';
+    }
+    else if(q.type==='text'){
+      h += '<div class="rev-block '+(pr.earned>0?'rev-yours':'rev-wrongans')+'"><span class="lbl">Jawabanmu</span>'+ (norm(a)?esc(a):'— (tidak dijawab) —') +'</div>';
+      h += '<div class="rev-block rev-right"><span class="lbl">Jawaban Ideal (Rubrik)</span>'+esc(q.ideal)+'</div>';
+    }
+    else if(q.type==='impossible'){
+      h += '<div class="rev-block '+(pr.earned>0?'rev-yours':'rev-wrongans')+'"><span class="lbl">Jawabanmu</span>';
+      if(a && (a.checked || norm(a.text))){
+        h += (a.checked?'☑ Menyatakan tidak dapat dijawab<br>':'☐ Tidak mencentang pernyataan<br>')+(norm(a.text)?esc(a.text):'— tanpa penjelasan —');
+      } else {
+        h += '— (tidak dijawab) —';
+      }
+      h += '</div>';
+      h += '<div class="rev-block rev-right"><span class="lbl">Kunci</span>'+esc(q.ideal)+'</div>';
+    }
+
+    h += '<div class="rev-exp"><span class="lbl">Pembahasan</span>'+esc(q.explanation)+'</div>';
+    h += '</div>';
+  }
+  $('reviewWrap').innerHTML = h;
+}
+
+/* ================= ALUR ================= */
+function startQuiz(){
+  var name = $('nameInput').value.trim();
+  if(name.length < 2 || !/^[A-Za-z0-9 ._'\-]+$/.test(name)){
+    $('nameError').classList.add('show');
+    var card = $('nameInput');
+    card.classList.remove('shake'); void card.offsetWidth; card.classList.add('shake');
+    return;
+  }
+  $('nameError').classList.remove('show');
+  state.name = name;
+  state.started = true;
+  state.remaining = TOTAL_TIME;
+  state.current = 0;
+  state.answers = {};
+  saveState();
+  showScreen('screen-quiz');
+  renderQuestion();
+  startTimer();
+}
+
+function resumeQuiz(){
+  showScreen('screen-quiz');
+  renderQuestion();
+  startTimer();
+}
+
+function retake(){
+  if(!confirm('Yakin ingin mengulang kuis? Seluruh jawaban dan nilai saat ini akan dihapus dan ujian dimulai dari awal.')) return;
+  stopTimer();
+  try{ localStorage.removeItem(LS_KEY); }catch(e){}
+  state = defaultState();
+  $('nameInput').value = '';
+  showScreen('screen-start');
+}
+
+/* ================= INIT ================= */
+function init(){
+  var loaded = loadState();
+  state = loaded || defaultState();
+
+  $('btnStart').addEventListener('click', startQuiz);
+  $('nameInput').addEventListener('keydown', function(e){ if(e.key==='Enter') startQuiz(); });
+  $('nameInput').addEventListener('input', function(){ $('nameError').classList.remove('show'); });
+
+  $('btnNext').addEventListener('click', goNext);
+  $('btnPrev').addEventListener('click', goPrev);
+  $('btnTopSubmit').addEventListener('click', openConfirm);
+  $('btnCancelSubmit').addEventListener('click', closeConfirm);
+  $('btnConfirmSubmit').addEventListener('click', function(){ submitExam(false); });
+  $('modalOverlay').addEventListener('click', function(e){ if(e.target === $('modalOverlay')) closeConfirm(); });
+  $('btnRetake').addEventListener('click', retake);
+
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && !$('modalOverlay').classList.contains('hidden')) closeConfirm();
+  });
+
+  if(state.submitted && state.result){
+    showResult();          // kunci: nilai tidak dapat diubah setelah dikumpulkan
+  } else if(state.started){
+    resumeQuiz();          // lanjutkan ujian yang tertunda (timer dilanjutkan)
+  } else {
+    showScreen('screen-start');
+  }
+}
+
+if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+else init();
+
+})();
+</script>
+</body>
+</html>
